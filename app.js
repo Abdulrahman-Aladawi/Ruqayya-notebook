@@ -50,7 +50,7 @@ const sortedWishes = [...sourceData.wishes].sort((a, b) => b.is_pinned - a.is_pi
 const introPage = {
     "id": 0,
     "name": "A World of Congratulations",
-    "message": "One incredible milestone, \n5 different languages, \nand across multiple borders...\n\nMore than 50 hearts have come together \nto celebrate your success.\n\nThis notebook is for you, ya Ruqayya! ❤️✨",
+    "message": "5 different languages, \nand across multiple borders...\n\nMore than 50 hearts have come together \nto celebrate your success.\n\nThis notebook is for you, ya Ruqayya! ❤️✨",
     "date": "Graduation 2026",
     "is_pinned": 0
 };
