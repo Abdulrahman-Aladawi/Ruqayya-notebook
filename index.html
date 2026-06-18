@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Congratulations Ruqayya!</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="notebook-container">
-        <!-- Static Top Photo Section -->
         <div class="photo-header">
             <img src="graduation_photo.jpeg" alt="Ruqayya" id="profile-pic">
             <h1 class="celebrate-title">✨ Congratulations Ruqayya  ✨</h1>
         </div>
 
-        <!-- Interactive Notebook Page -->
         <div class="notebook-page" id="notebook-page" title="Click to turn page">
-            <!-- Decorative Notebook Spine/Rings effect on the left side -->
             <div class="notebook-spine"></div>
             
             <div class="page-content" id="page-content">
@@ -26,9 +24,9 @@
                 <div class="comment-date" id="comment-date"></div>
             </div>
 
-            <!-- Page Meta Info -->
             <div class="footer-meta">
-                <span class="tap-hint">Click page to flip 📖</span>
+                <button class="nav-btn prev-btn" id="prev-btn" title="Previous Page">◀ Back</button>
+                <span class="tap-hint" id="tap-hint">اضغطي الصفحة لأُمنية جديدة 👆📖</span>
                 <span class="page-number" id="page-number">1</span>
             </div>
         </div>

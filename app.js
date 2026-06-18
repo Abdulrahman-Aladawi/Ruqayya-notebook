@@ -36,7 +36,7 @@ const sourceData = {
     { "id" : 61, "name" : "Uschi und Jürgen ", "location" : "Local", "message" : "Alles Gute liebe Ruqayya\nZum Schulabschluss\nWir wünschen dir auf für deine Zukunft das Beste\n\nLiebe Grüße \n\n", "date" : "24 May", "is_pinned" : 0 },
     { "id" : 62, "name" : "Heba", "location" : "Local", "message" : "ألف مبرووك رقية الرقيقة ❤️❤️ عقبال تخرجك بالشهادات الأعلى ونشوفك بأعلى المراتب 🎉🎉", "date" : "27 May", "is_pinned" : 0 },
     { "id" : 63, "name" : "نادرة ", "location" : "Local", "message" : "بتمنالك التفوق والنجاح وتحققي كلشي بتتمنيه ", "date" : "2 Jun", "is_pinned" : 0 },
-    { "id" : 64, "name" : "Leila ", "location" : "Local", "message" : "Je te félicite de tout cœur pour ta réussite et ton diplôme. Je te souhaite beaucoup de succès dans tes études et dans ta vie, ainsi que de la chance, du bonheur et de la réussite dans tous les domaines de la vie. Que tous tes rêves se réalisent.", "date" : "2 Jun", "is_pinned" : 0 },
+    { "id" : 64, "name" : "Leila ", "location" : "Local", "message" : "Je te félicite de tout cœur pour ta réussite und ton diplôme. Je te souhaite beaucoup de succès dans tes études et dans ta vie, ainsi que de la chance, du bonheur et de la réussite dans tous les domaines de la vie. Que tous tes rêves se réalisent.", "date" : "2 Jun", "is_pinned" : 0 },
     { "id" : 65, "name" : "Abdulrahman ", "location" : "Local", "message" : "Congrats..you made it🙌🏻 🎓\n\nWishing you a bright journey ahead and a lifetime of grand achievements. \n\n", "date" : "3 Jun", "is_pinned" : 0 },
     { "id" : 29, "name" : " روح قلب البابا رورو", "location" : "Local", "message" : "الف الف مبروووك حبيبة قلبي رورو الغالية ومنها للشهادات العليا الله يوفقك ويحققلك امنياتك 😘🎓🎓يا رب", "date" : "20 May", "is_pinned" : 1 },
     { "id" : 66, "name" : "💕الحبيبة", "location" : "Local", "message" : "🌹🌷الحمد لله الذي بلغني ماأحب في من أحب فرحتي نجاحك لا توصفها الكلمات سعادتك ...وانجازك فخرا لنا 🌹🌷", "date" : "5 Jun", "is_pinned" : 1 }
@@ -50,8 +50,8 @@ const sortedWishes = [...sourceData.wishes].sort((a, b) => b.is_pinned - a.is_pi
 const introPage = {
     "id": 0,
     "name": "A World of Congratulations",
-    "message": "5 different languages, \nand across multiple borders...\n\nMore than 50 hearts have come together \nto celebrate your success.\n\nThis notebook is for you, ya Ruqayya! ❤️✨",
-    "date": "Graduation 2026",
+    "message": "(وَآخِرُ دَعْوَاهُمْ أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ) , \n 5 different languages, \nand across multiple borders...\n\nMore than 50 hearts have come together \nto celebrate your success ya Ruqayya!✨.\n\nWish you all the best ",
+    "date": "19/06/2026",
     "is_pinned": 0
 };
 
@@ -67,6 +67,19 @@ const textElement = document.getElementById('comment-text');
 const authorElement = document.getElementById('comment-author');
 const dateElement = document.getElementById('comment-date');
 const pageNumberElement = document.getElementById('page-number');
+const prevBtn = document.getElementById('prev-btn');
+
+// Confetti Burst Trigger function
+function triggerConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 120,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#fbc2eb', '#e6c5ff', '#a6c1ee', '#e1b36f', '#ba9bc9']
+        });
+    }
+}
 
 // Function to safely update values with transition
 function renderPage(index) {
@@ -90,14 +103,30 @@ function renderPage(index) {
         
         // Smoothly slide back in
         pageContent.classList.remove('turning');
+
+        // Fire festive confetti on the introduction card or pinned family cards
+        if (currentWish.id === 0 || currentWish.is_pinned === 1) {
+            triggerConfetti();
+        }
     }, 400);
 }
 
-// Global click event to advance pages
-notebookPage.addEventListener('click', () => {
+// Click event to advance pages forward (clicking the notebook sheet)
+notebookPage.addEventListener('click', (e) => {
+    // Prevent forward flip if user specifically clicks the back button element
+    if (e.target.closest('#prev-btn')) return;
+
     currentIndex = (currentIndex + 1) % sortedWishes.length;
     renderPage(currentIndex);
 });
+
+// Click event to navigate backward
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + sortedWishes.length) % sortedWishes.length;
+        renderPage(currentIndex);
+    });
+}
 
 // Setup opening view values on boot
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,5 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         authorElement.textContent = sortedWishes[0].name;
         dateElement.textContent = sortedWishes[0].date;
         pageNumberElement.textContent = `1 / ${sortedWishes.length}`;
+        
+        // Shoot introductory welcome confetti!
+        setTimeout(triggerConfetti, 500);
     }
 });

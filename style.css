@@ -173,4 +173,32 @@ body {
     .comment-text {
         font-size: 1.15rem;
     }
+}/* ==========================================================================
+   9. INTERACTIVE NAVIGATION BUTTONS
+   ========================================================================== */
+.footer-meta {
+    align-items: center;
+}
+
+.nav-btn {
+    background: rgba(186, 155, 201, 0.2); /* Soft orchid tint */
+    border: 1px solid rgba(186, 155, 201, 0.4);
+    color: #5d4366;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10; /* Ensures it sits above the notebook click layer */
+}
+
+.nav-btn:hover {
+    background: rgba(186, 155, 201, 0.4);
+    transform: scale(1.05);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
 }
