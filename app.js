@@ -105,9 +105,9 @@ function renderPage(index) {
         pageContent.classList.remove('turning');
 
         // Fire festive confetti on the introduction card or pinned family cards
-        if (currentWish.id === 0 || currentWish.is_pinned === 1) {
+       
             triggerConfetti();
-        }
+        
     }, 400);
 }
 
