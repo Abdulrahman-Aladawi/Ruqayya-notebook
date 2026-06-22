@@ -37,6 +37,7 @@ const sourceData = {
     { "id" : 62, "name" : "Heba", "location" : "Local", "message" : "ألف مبرووك رقية الرقيقة ❤️❤️ عقبال تخرجك بالشهادات الأعلى ونشوفك بأعلى المراتب 🎉🎉", "date" : "27 May", "is_pinned" : 0 },
     { "id" : 63, "name" : "نادرة ", "location" : "Local", "message" : "بتمنالك التفوق والنجاح وتحققي كلشي بتتمنيه ", "date" : "2 Jun", "is_pinned" : 0 },
     { "id" : 64, "name" : "Leila ", "location" : "Local", "message" : "Je te félicite de tout cœur pour ta réussite und ton diplôme. Je te souhaite beaucoup de succès dans tes études et dans ta vie, ainsi que de la chance, du bonheur et de la réussite dans tous les domaines de la vie. Que tous tes rêves se réalisent.", "date" : "2 Jun", "is_pinned" : 0 },
+   { "id" : 65, "name" : "Abdulrahman ", "location" : "Local", "message" : "Congrats..you made it🙌🏻 🎓\n\nWishing you a bright journey ahead ya Ruqayya and a lifetime of grand achievements. \n\n", "date" : "3 Jun", "is_pinned" : 0 },
     { "id" : 29, "name" : " روح قلب البابا رورو", "location" : "Local", "message" : "الف الف مبروووك حبيبة قلبي رورو الغالية ومنها للشهادات العليا الله يوفقك ويحققلك امنياتك 😘🎓🎓يا رب", "date" : "20 May", "is_pinned" : 1 },
     { "id" : 66, "name" : "💕الحبيبة", "location" : "Local", "message" : "🌹🌷الحمد لله الذي بلغني ماأحب في من أحب فرحتي نجاحك لا توصفها الكلمات سعادتك ...وانجازك فخرا لنا 🌹🌷", "date" : "5 Jun", "is_pinned" : 1 }
   ]
